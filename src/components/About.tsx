@@ -1,36 +1,64 @@
+"use client";
+
 import { Download, Code2, Database, Globe, Smartphone, Server, GitBranch } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 
 const About = () => {
+  const [showAllSkills, setShowAllSkills] = useState(false);
+  
   const skills = [
-    { name: "Frontend", icon: <Globe className="w-6 h-6" />, techs: ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
-    { name: "Backend", icon: <Server className="w-6 h-6" />, techs: ["Node.js", "Python", "PostgreSQL", "MongoDB"] },
-    { name: "Mobile", icon: <Smartphone className="w-6 h-6" />, techs: ["React Native", "Flutter", "iOS", "Android"] },
-    { name: "Tools", icon: <GitBranch className="w-6 h-6" />, techs: ["Git", "Docker", "AWS", "Figma"] },
+    { name: 'C++', icon: '⚙️' },
+    { name: 'Python', icon: '🐍' },
+    { name: 'Figma', icon: '🎨' },
+    { name: 'SQL', icon: '🗄️' },
+    { name: 'MATLAB', icon: '📊' },
+    { name: 'R', icon: '📈' },
+    { name: 'PowerBI', icon: '📊' },
+    { name: 'Tableau', icon: '📊' },
+    { name: 'VBA', icon: '🧮' },
+    { name: 'React', icon: '⚛️' },
+    { name: 'TypeScript', icon: '📘' },
+    { name: 'Node.js', icon: '💚' },
+    { name: 'JavaScript', icon: '💛' },
+    { name: 'HTML/CSS', icon: '🎨' },
+    { name: 'Git', icon: '📂' },
+    { name: 'AWS', icon: '☁️' },
+    { name: 'PostgreSQL', icon: '🐘' },
+    { name: 'MongoDB', icon: '🍃' },
+    { name: 'Oracle', icon: '🧱' },
   ];
+
+  const displayedSkills = showAllSkills ? skills : skills.slice(0, 8);
 
   return (
     <section id="about" className="py-20 px-6">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
+        <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
           About Me
         </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Profile Photo Placeholder */}
+        <div className="grid lg:grid-cols-2 gap-4 items-center">
+          {/* Profile Photo */}
           <div className="flex justify-center lg:justify-start">
             <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
               <div className="text-center text-muted-foreground">
-                <div className="w-20 h-20 bg-muted-foreground/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                  <Code2 className="w-8 h-8" />
+                <div className="w-64 h-64 lg:w-80 lg:h-80 rectangle-full overflow-hidden ring-4 ring-offset-2 ring-gray-500 ring-offset-white">
+                  <Image
+                    src="/IMG_8212.jpeg"
+                    alt="Lovera Lokeswara"
+                    width={320}
+                    height={320}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
                 </div>
-                <p className="text-sm">Profile Photo Placeholder</p>
-                <p className="text-xs mt-1">Replace with your photo</p>
               </div>
             </div>
           </div>
 
           {/* Bio and CV */}
-          <div className="space-y-6">
+          <div className="space-y-6 lg:-ml-8">
             <div className="space-y-4">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm a passionate full-stack developer with [X] years of experience creating 
@@ -44,7 +72,7 @@ const About = () => {
               </p>
             </div>
 
-            <button className="inline-flex items-center gap-2 bg-foreground text-background px-6 py-3 rounded-lg hover:bg-foreground/90 transition-colors duration-200">
+            <button className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200">
               <Download className="w-4 h-4" />
               Download CV
             </button>
@@ -52,33 +80,50 @@ const About = () => {
         </div>
 
         {/* Skills Section */}
-        <div className="mt-20">
-          <h3 className="text-2xl font-bold text-foreground mb-12 text-center">
-            Skills & Technologies
-          </h3>
+        <div 
+          className="mt-20 py-16 px-8 rounded-3xl relative overflow-hidden"
+          style={{
+            backgroundImage: `
+              linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%),
+              radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
+              radial-gradient(circle at 40% 60%, rgba(236, 72, 153, 0.1) 0%, transparent 50%)
+            `
+          }}
+        >
+          {/* Subtle overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5 dark:from-black/10 dark:via-transparent dark:to-white/5"></div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="text-center space-y-4 p-6 rounded-xl bg-card border border-border hover:border-border/60 transition-colors"
-              >
-                <div className="flex justify-center text-foreground">
-                  {skill.icon}
+          <div className="relative z-10">
+            <h3 className="text-shadow-md text-2xl font-bold text-foreground mb-12 text-center">
+              Skills & Technologies 👩‍💻
+            </h3>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {displayedSkills.map((skill, index) => (
+                <div
+                  key={index}
+                  className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
+                >
+                  <div className="flex justify-center text-foreground">
+                    <span className="text-3xl">{skill.icon}</span>
+                  </div>
+                  <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
                 </div>
-                <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
-                <div className="space-y-2">
-                  {skill.techs.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="inline-block bg-muted text-muted-foreground px-3 py-1 rounded-full text-sm mr-2 mb-2"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+              ))}
+            </div>
+
+            {/* Show More/Less Button */}
+            {skills.length > 8 && (
+              <div className="text-center mt-8">
+                <button
+                  onClick={() => setShowAllSkills(!showAllSkills)}
+                  className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-800 transition-colors duration-200"
+                >
+                  {showAllSkills ? 'Show Less' : `Show More (${skills.length - 8} more)`}
+                </button>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>

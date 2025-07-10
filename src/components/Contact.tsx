@@ -29,28 +29,43 @@ const Contact = () => {
     {
       name: "Email",
       icon: <Mail className="w-5 h-5" />,
-      href: "mailto:your.email@example.com",
-      label: "your.email@example.com"
+      href: "mailto:lovera.087@gmail.com",
+      label: "lovera.087@gmail.com"
     },
     {
       name: "GitHub",
       icon: <Github className="w-5 h-5" />,
-      href: "https://github.com/yourusername",
-      label: "github.com/yourusername"
+      href: "https://github.com/LoveraLokeswara",
+      label: "github.com/LoveraLokeswara"
     },
     {
       name: "LinkedIn",
       icon: <Linkedin className="w-5 h-5" />,
-      href: "https://linkedin.com/in/yourprofile",
-      label: "linkedin.com/in/yourprofile"
+      href: "https://linkedin.com/in/lovera-lokeswara",
+      label: "linkedin.com/in/lovera-lokeswara"
     }
   ];
 
   return (
-    <section id="contact" className="py-20 px-6 bg-muted/20">
-      <div className="container mx-auto max-w-4xl">
+    <section 
+      id="contact" 
+      className="py-20 px-6 relative overflow-hidden"
+      style={{
+        backgroundImage: `
+          linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.5)),
+          url("/bg_scene.JPG")
+        `,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}
+    >
+      {/* Additional white overlay for better text contrast and theme awareness */}
+      <div className="absolute inset-0 bg-white/60 dark:bg-white/40"></div>
+      
+      <div className="container mx-auto max-w-4xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-4">
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
@@ -61,7 +76,7 @@ const Contact = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-card border border-border rounded-xl p-8">
+          <div className="bg-card/90 backdrop-blur-sm border border-border rounded-xl p-8 shadow-2xl">
             <div className="flex items-center gap-3 mb-6">
               <MessageCircle className="w-6 h-6 text-primary" />
               <h3 className="text-xl font-semibold text-foreground">Send a Message</h3>
@@ -79,7 +94,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 bg-background/80 backdrop-blur-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
                   placeholder="Lovera Lokeswara"
                 />
               </div>
@@ -95,7 +110,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
+                  className="w-full px-4 py-3 bg-background/80 backdrop-blur-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors"
                   placeholder="your.email@example.com"
                 />
               </div>
@@ -111,14 +126,14 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
+                  className="w-full px-4 py-3 bg-background/80 backdrop-blur-sm border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors resize-none"
                   placeholder="Tell me about your project or just say hello!"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-foreground text-background py-3 px-6 rounded-lg hover:bg-foreground/90 transition-colors duration-200 flex items-center justify-center gap-2 font-medium"
+                className="w-full bg-foreground text-background py-3 px-6 rounded-lg hover:bg-foreground/90 transition-colors duration-200 flex items-center justify-center gap-2 font-medium shadow-lg"
               >
                 <Send className="w-4 h-4" />
                 Send Message
@@ -129,10 +144,10 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-6">Let's Connect</h3>
+              <h3 className="text-shadow-md text-xl font-semibold text-foreground mb-6">Let's Connect</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Whether you have a project in mind, want to collaborate, or just want to say hi, 
-                I'd love to hear from you. Feel free to reach out through any of the channels below.
+                Whether you're working on a project, exploring a collaboration, or simply want to connect — I'd be happy to hear from you.
+                Feel free to reach out through any of the channels below 👇
               </p>
             </div>
 
@@ -143,7 +158,7 @@ const Contact = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 bg-card border border-border rounded-lg hover:border-border/60 transition-colors group"
+                  className="flex items-center gap-4 p-4 bg-card/90 backdrop-blur-sm border border-border rounded-lg hover:border-border/60 transition-colors group shadow-lg"
                 >
                   <div className="text-primary group-hover:scale-110 transition-transform">
                     {link.icon}

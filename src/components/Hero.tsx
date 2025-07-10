@@ -44,7 +44,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6"
+              className="text-shadow-lg text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6"
             >
               Lovera Lokeswara
             </motion.h1>
@@ -59,7 +59,7 @@ const Hero = () => {
                 Hi there 👋 — I'm passionate about turning ideas into meaningful digital experiences.
               </p>
               <p>
-                With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
+                With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo (so excited 🤩), I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
               </p>
             </motion.div>
           </div>

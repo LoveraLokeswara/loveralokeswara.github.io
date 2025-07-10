@@ -75,10 +75,12 @@ const Projects = () => {
     show: { opacity: 1, y: 0 }
   };
 
+  
+
   return (
     <section id="projects" className="py-20 px-6 bg-muted/20">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
+        <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
           Featured Projects
         </h2>
 
