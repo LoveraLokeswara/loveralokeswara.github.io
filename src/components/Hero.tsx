@@ -10,9 +10,16 @@ const Hero = () => {
   const { scrollYProgress } = useScroll();
   
   // Scroll-based animations
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]); // Increase opacity as we scroll
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["100vh", "0vh"]);
+  
+  // Background positioning - fixed until past About section (around 40% scroll)
+  const backgroundPosition = useTransform(
+    scrollYProgress,
+    [0, 0.3, 0.41],
+    ["fixed", "fixed", "absolute"]
+  );
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -41,8 +48,11 @@ const Hero = () => {
       >
         {/* Background Image */}
         <motion.div
-          style={{ opacity: backgroundOpacity }}
-          className="absolute inset-0 z-0"
+          style={{ 
+            opacity: backgroundOpacity,
+            position: backgroundPosition,
+          }}
+          className="inset-0 z-0"
         >
           <Image
             src="/saikung_scene.jpeg" // Update with your team photo path
@@ -54,7 +64,7 @@ const Hero = () => {
             }}
             priority
             placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxAAPwCdABmX/9k="
           />
           <div className="absolute inset-0 bg-black/30" />
         </motion.div>
@@ -181,25 +191,48 @@ const Hero = () => {
       </section>
 
       {/* White Content Section */}
-      <motion.div
-        // style={{ y: contentY }}
-        // className="relative z-40 min-h-screen bg-white"
-      >
+      <motion.div>
         <div className="max-w-6xl mx-auto px-6 py-20">
           {/* About Section */}
-          <section id="about" className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">About</h2>
+          <motion.section
+            id="about"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-20 bg-white/80 p-8 rounded-lg shadow-lg backdrop-blur-sm"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="text-4xl md:text-5xl font-bold text-black mb-8"
+            >
+              About
+            </motion.h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-lg text-gray-700 mb-6">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              >
+                <p className="text-lg text-black mb-6">
                   Hi there 👋 — I'm passionate about turning ideas into meaningful digital experiences.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-black">
                   With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
                 </p>
-              </div>
-              <div className="relative">
-                <div className="w-full h-96 rounded-lg overflow-hidden">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                className="relative"
+              >
+                <div className="w-full h-96 rounded-lg overflow-hidden shadow-md">
                   <Image
                     src="/FullSizeRender.jpeg"
                     alt="Lovera Lokeswara"
@@ -208,9 +241,9 @@ const Hero = () => {
                     className="w-full h-full object-cover object-[center_70%]"
                   />
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </section>
+          </motion.section>
 
           {/* Education Section */}
           {/* <section id="education" className="mb-20">

@@ -3,6 +3,7 @@
 import { Download, Code2, Database, Globe, Smartphone, Server, GitBranch } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const About = () => {
   const [showAllSkills, setShowAllSkills] = useState(false);
@@ -29,18 +30,38 @@ const About = () => {
     { name: 'Oracle', icon: '🧱' },
   ];
 
-  const displayedSkills = showAllSkills ? skills : skills.slice(0, 8);
+  const initialSkills = skills.slice(0, 8);
+  const additionalSkills = skills.slice(8);
 
   return (
-    <section id="about" className="py-20 px-6">
+    <motion.section
+      id="about"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6 }}
+      className="py-20 px-6 bg-white relative z-10"
+    >
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center"
+        >
           About Me
-        </h2>
+        </motion.h2>
 
         <div className="grid lg:grid-cols-2 gap-4 items-center">
           {/* Profile Photo */}
-          <div className="flex justify-center lg:justify-start">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="flex justify-center lg:justify-start"
+          >
             <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
               <div className="text-center text-muted-foreground">
                 <div className="w-64 h-64 lg:w-80 lg:h-80 rectangle-full overflow-hidden ring-4 ring-offset-2 ring-gray-500 ring-offset-white">
@@ -55,10 +76,16 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Bio and CV */}
-          <div className="space-y-6 lg:-ml-8">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="space-y-6 lg:-ml-8"
+          >
             <div className="space-y-4">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm a passionate full-stack developer with [X] years of experience creating 
@@ -72,15 +99,27 @@ const About = () => {
               </p>
             </div>
 
-            <button className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200"
+            >
               <Download className="w-4 h-4" />
               Download CV
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
         </div>
 
         {/* Skills Section */}
-        <div 
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
           className="mt-20 py-16 px-8 rounded-3xl relative overflow-hidden"
           style={{
             backgroundImage: `
@@ -95,39 +134,96 @@ const About = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5 dark:from-black/10 dark:via-transparent dark:to-white/5"></div>
           
           <div className="relative z-10">
-            <h3 className="text-shadow-md text-2xl font-bold text-foreground mb-12 text-center">
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 1.2, ease: "easeOut" }}
+              className="text-shadow-md text-2xl font-bold text-foreground mb-12 text-center"
+            >
               Skills & Technologies 👩‍💻
-            </h3>
+            </motion.h3>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {displayedSkills.map((skill, index) => (
-                <div
-                  key={index}
+              {/* Always visible skills */}
+              {initialSkills.map((skill, index) => (
+                <motion.div
+                  key={`initial-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 1.4 + index * 0.05, ease: "easeOut" }}
                   className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
                 >
                   <div className="flex justify-center text-foreground">
                     <span className="text-3xl">{skill.icon}</span>
                   </div>
                   <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
-                </div>
+                </motion.div>
               ))}
+              
+              {/* Additional skills with smooth animation */}
+              <AnimatePresence>
+                {showAllSkills && additionalSkills.map((skill, index) => (
+                  <motion.div
+                    key={`additional-${index}`}
+                    initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ 
+                      opacity: 0, 
+                      y: -10, 
+                      scale: 0.9,
+                      transition: {
+                        duration: 0.4,
+                        delay: (additionalSkills.length - 1 - index) * 0.08, // Reverse order for exit
+                        ease: "easeOut"
+                      }
+                    }}
+                    transition={{ 
+                      duration: 0.4, 
+                      delay: index * 0.08, // Normal order for entrance
+                      ease: "easeOut"
+                    }}
+                    className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
+                  >
+                    <div className="flex justify-center text-foreground">
+                      <span className="text-3xl">{skill.icon}</span>
+                    </div>
+                    <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
             </div>
 
             {/* Show More/Less Button */}
             {skills.length > 8 && (
-              <div className="text-center mt-8">
-                <button
+              <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
+                className="text-center mt-8"
+              >
+                <motion.button
                   onClick={() => setShowAllSkills(!showAllSkills)}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-800 transition-colors duration-200"
                 >
-                  {showAllSkills ? 'Show Less' : `Show More (${skills.length - 8} more)`}
-                </button>
-              </div>
+                  <motion.span
+                    animate={{ rotate: showAllSkills ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    ▼
+                  </motion.span>
+                  {showAllSkills ? 'Show Less' : `Show More (${additionalSkills.length} more)`}
+                </motion.button>
+              </motion.div>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
