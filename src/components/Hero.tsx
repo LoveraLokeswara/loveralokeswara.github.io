@@ -78,9 +78,16 @@ const Hero = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-2xl font-bold text-gray-900"
+                className="flex items-center"
               >
-                LL
+                <Image
+                  src="/LLlogo2.png"
+                  alt="LL Logo"
+                  width={40}
+                  height={40}
+                  className="object-contain"
+                  priority
+                />
               </motion.div>
 
               {/* Desktop Navigation */}
@@ -155,7 +162,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 60, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 1.2, ease: 'easeOut' }}
-              className="text-center text-[clamp(2.5rem,10vw,8rem)] font-light italic tracking-wide text-white dark:text-white leading-tight font-[cursive]"
+              className="text-center text-[clamp(2.5rem,10vw,8rem)] font-light italic tracking-wide text-white dark:text-white leading-tight font-[georgia]"
               style={{
                 WebkitTextStroke: '2px rgba(0, 0, 0, 0.3)',
               }}

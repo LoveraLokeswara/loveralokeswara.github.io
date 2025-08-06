@@ -34,32 +34,20 @@ const About = () => {
   const additionalSkills = skills.slice(8);
 
   return (
-    <motion.section
+    <section
       id="about"
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
       className="py-20 px-6 bg-white relative z-10"
     >
       <div className="container mx-auto max-w-6xl">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        <h2
           className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center"
         >
           About Me
-        </motion.h2>
+        </h2>
 
         <div className="grid lg:grid-cols-2 gap-4 items-center">
           {/* Profile Photo */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+          <div
             className="flex justify-center lg:justify-start"
           >
             <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
@@ -76,14 +64,10 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Bio and CV */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          <div
             className="space-y-6 lg:-ml-8"
           >
             <div className="space-y-4">
@@ -99,19 +83,13 @@ const About = () => {
               </p>
             </div>
 
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <button
               className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200"
             >
               <Download className="w-4 h-4" />
               Download CV
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
         </div>
 
         {/* Skills Section */}
@@ -223,7 +201,7 @@ const About = () => {
           </div>
         </motion.div>
       </div>
-    </motion.section>
+    </section>
   );
 };
 

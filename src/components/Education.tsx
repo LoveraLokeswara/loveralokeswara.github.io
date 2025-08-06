@@ -13,9 +13,9 @@ const Education = () => {
       institution: "University of Waterloo",
       location: "Canada",
       degree: "Master of Data Science and Artificial Intelligence",
-      program: "(co-op program)",
+      program: "(Co-op program)",
       duration: "Sep 2025 - Dec 2026",
-      status: "Upcoming",
+      status: "Expected",
       icon: <Image src="/uwaterloo.png" alt="University of Waterloo" width={50} height={50} />,
     },
     {
@@ -95,7 +95,7 @@ const Education = () => {
               Education 🎓
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              My academic journey in Data Science and Technology
+              My academic journey in Data Science and Artificial Intelligence
             </p>
           </motion.div>
 
@@ -136,7 +136,7 @@ const Education = () => {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
                       <p className="text-muted-foreground">{edu.duration}</p>
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${
-                        edu.status === 'Upcoming' 
+                        edu.status === 'Expected' 
                           ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200'
                           : 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
                       }`}>
