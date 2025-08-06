@@ -1,82 +1,273 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: "smooth" });
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  
+  // Scroll-based animations
+  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["100vh", "0vh"]);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
     }
+    setIsMenuOpen(false);
   };
 
+  // Navigation items
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Education", href: "#education" },
+    { label: "Projects", href: "#projects" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <section
-      id="home"
-      className="min-h-screen flex items-center justify-center relative px-6"
-    >
-      <div className="text-center max-w-6xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 mb-8">
-          {/* Photo */}
+    <>
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="relative min-h-screen overflow-hidden"
+      >
+        {/* Background Image */}
+        <motion.div
+          style={{ opacity: backgroundOpacity }}
+          className="absolute inset-0 z-0"
+        >
+          <Image
+            src="/saikung_scene.jpeg" // Update with your team photo path
+            alt="Team Background"
+            fill
+            className="object-cover object-center"
+            style={{
+              filter: 'blur(1.5px)',
+            }}
+            priority
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+          />
+          <div className="absolute inset-0 bg-black/30" />
+        </motion.div>
+
+        {/* Fixed Navigation Bar */}
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
+          <div className="max-w-7xl mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              {/* Logo */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="text-2xl font-bold text-gray-900"
+              >
+                LL
+              </motion.div>
+
+              {/* Desktop Navigation */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="hidden md:flex items-center space-x-8"
+              >
+                {navItems.map((item, index) => (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.href.slice(1))}
+                    className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-300 relative group"
+                  >
+                    {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full" />
+                  </button>
+                ))}
+              </motion.div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden relative z-50 p-2"
+                aria-label="Toggle menu"
+              >
+                <div className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+                <div className={`w-6 h-0.5 bg-gray-900 my-1 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : ''}`} />
+                <div className={`w-6 h-0.5 bg-gray-900 transition-all duration-300 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Menu */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative"
+            initial={false}
+            animate={isMenuOpen ? { height: "auto", opacity: 1 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden overflow-hidden bg-white border-t"
           >
-            <div className="w-64 h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-border">
-              <Image
-                src="/FullSizeRender.jpeg"
-                alt="Lovera Lokeswara"
-                width={320}
-                height={320}
-                className="w-full h-full object-cover"
-                priority
-              />
+            <div className="px-6 py-4 space-y-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.href.slice(1))}
+                  className="block w-full text-left text-gray-700 hover:text-gray-900 font-medium transition-colors duration-300"
+                >
+                  {item.label}
+                </button>
+              ))}
             </div>
           </motion.div>
+        </nav>
 
-          {/* Name and Bio */}
-          <div className="text-center lg:text-left">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
+
+        {/* Main Hero Content */}
+        <div className="relative z-20 min-h-screen flex items-center justify-center px-6">
+          <motion.div className="relative text-center">
+            {/* Large Transparent Text Overlay */}
+            {/* <motion.h1
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-shadow-lg text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6"
+              transition={{ duration: 1, delay: 0.6 }}
+              className="font-serif text-8xl md:text-9xl lg:text-[12rem] xl:text-[14rem] font-black leading-none tracking-tight text-transparent"
+              style={{
+                WebkitTextStroke: '2px rgba(255, 255, 255, 0.3)',
+                textShadow: '0 0 40px rgba(255, 0, 0, 0.5)',
+              }}
+            > */}
+            <motion.h1
+              initial={{ opacity: 0, y: 60, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 1.2, ease: 'easeOut' }}
+              className="text-center text-[clamp(2.5rem,10vw,8rem)] font-light italic tracking-wide text-white dark:text-white leading-tight font-[cursive]"
+              style={{
+                WebkitTextStroke: '2px rgba(0, 0, 0, 0.3)',
+              }}
             >
               Lovera Lokeswara
             </motion.h1>
             
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg md:text-xl lg:text-2xl text-muted-foreground max-w-2xl space-y-4"
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="text-white text-xl md:text-2xl font-light mt-4 tracking-wider"
             >
-              <p>
-                Hi there 👋 — I'm passionate about turning ideas into meaningful digital experiences.
-              </p>
-              <p>
-                With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo (so excited 🤩), I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
-              </p>
-            </motion.div>
-          </div>
+              Data Science & AI Enthusiast
+            </motion.p>
+          </motion.div>
         </div>
 
+        {/* Scroll Indicator */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          onClick={scrollToAbout}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors duration-300 animate-bounce"
+          transition={{ duration: 0.8, delay: 1.2 }}
+          onClick={() => scrollToSection('about')}
+          style={{ opacity: textOpacity }}
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white hover:text-orange-500 transition-colors duration-300 animate-bounce z-30"
           aria-label="Scroll to about section"
         >
           <ChevronDown size={32} />
         </motion.button>
-      </div>
-    </section>
+
+      </section>
+
+      {/* White Content Section */}
+      <motion.div
+        // style={{ y: contentY }}
+        // className="relative z-40 min-h-screen bg-white"
+      >
+        <div className="max-w-6xl mx-auto px-6 py-20">
+          {/* About Section */}
+          <section id="about" className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">About</h2>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-lg text-gray-700 mb-6">
+                  Hi there 👋 — I'm passionate about turning ideas into meaningful digital experiences.
+                </p>
+                <p className="text-lg text-gray-700">
+                  With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
+                </p>
+              </div>
+              <div className="relative">
+                <div className="w-full h-96 rounded-lg overflow-hidden">
+                  <Image
+                    src="/FullSizeRender.jpeg"
+                    alt="Lovera Lokeswara"
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover object-[center_70%]"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Education Section */}
+          {/* <section id="education" className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Education</h2>
+            <div className="space-y-8">
+              <div className="border-l-4 border-orange-500 pl-6">
+                <h3 className="text-2xl font-bold text-gray-900">Master's in Data Science & AI</h3>
+                <p className="text-xl text-gray-600">University of Waterloo</p>
+                <p className="text-gray-500">Starting Soon</p>
+              </div>
+              <div className="border-l-4 border-orange-500 pl-6">
+                <h3 className="text-2xl font-bold text-gray-900">First Class Honors in Data Science & Technology</h3>
+                <p className="text-xl text-gray-600">Hong Kong University of Science and Technology</p>
+                <p className="text-gray-500">Completed</p>
+              </div>
+            </div>
+          </section> */}
+
+          {/* Projects Section */}
+          {/* <section id="projects" className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Projects</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
+              {/* Add your projects here */}
+              {/* <div className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">Project Coming Soon</h3>
+                <p className="text-gray-700">Exciting projects will be showcased here.</p>
+              </div>
+            </div>
+          </section> */}
+
+          {/* Experience Section */}
+          {/* <section id="experience" className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Experience</h2>
+            <div className="space-y-8"> */}
+              {/* Add your experience here */}
+              {/* <div className="border-l-4 border-orange-500 pl-6">
+                <h3 className="text-2xl font-bold text-gray-900">Experience Coming Soon</h3>
+                <p className="text-xl text-gray-600">Professional experience will be detailed here.</p>
+              </div>
+            </div>
+          </section> */}
+
+          {/* Contact Section */}
+          {/* <section id="contact">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">Contact</h2>
+            <div className="text-center">
+              <p className="text-xl text-gray-700 mb-8">
+                Let's connect and create something amazing together.
+              </p>
+              <button className="bg-orange-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-300">
+                Get In Touch
+              </button>
+            </div>
+          </section> */}
+        </div>
+      </motion.div>
+    </>
   );
 };
 
