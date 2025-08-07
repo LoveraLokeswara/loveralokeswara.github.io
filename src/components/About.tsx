@@ -72,14 +72,10 @@ const About = () => {
           >
             <div className="space-y-4">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm a passionate full-stack developer with [X] years of experience creating 
-                digital solutions that make a difference. I love turning complex problems 
-                into simple, beautiful, and intuitive designs.
+              I'm a passionate data scientist with internship experience spanning data analysis, data science, and software engineering, focused on creating solutions that make a real impact. I love transforming complex datasets into clear insights and building intuitive data-driven applications.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you can find me [your hobbies/interests]. I believe 
-                in continuous learning and staying up-to-date with the latest technologies 
-                and best practices in software development.
+                When I'm not coding, you can find me wandering around the city, discovering great food spots, playing board games, or having way too much fun at karaoke nights! I believe in continuous learning and keeping up with the latest trends in data science and AI.
               </p>
             </div>
 

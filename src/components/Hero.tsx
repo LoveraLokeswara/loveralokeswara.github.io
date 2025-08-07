@@ -216,7 +216,7 @@ const Hero = () => {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="text-4xl md:text-5xl font-bold text-black mb-8"
             >
-              About
+              Hi there 👋
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <motion.div
@@ -226,10 +226,10 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 <p className="text-lg text-black mb-6">
-                  Hi there 👋 — I'm passionate about turning ideas into meaningful digital experiences.
+                  Welcome to my corner of the web! I'm passionate about turning ideas into meaningful digital experiences. 
                 </p>
                 <p className="text-lg text-black">
-                  With a First Class Honors degree in Data Science & Technology from HKUST and soon starting my Master's in Data Science & AI at the University of Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
+                  With a First Class Honors degree in Data Science & Technology from HKUST and currently studying for my Master's in Data Science & AI at Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
                 </p>
               </motion.div>
               <motion.div

@@ -11,9 +11,9 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
-      company: "Tech Company Inc.",
-      duration: "2022 - Present",
+      title: "Software Engineer Intern",
+      company: "Bridge AI Knowledge",
+      duration: "May 2025 - Aug 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
         "Led development of microservices architecture reducing load times by 40%",
@@ -23,9 +23,9 @@ const Experience = () => {
       ]
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency Co.",
-      duration: "2021 - 2022",
+      title: "Digital & IT Intern - Data Scientist Team",
+      company: "Cathay Pacific Airways",
+      duration: "Jun 2024 - Aug 2024",
       logo: "/api/placeholder/60/60",
       contributions: [
         "Developed responsive web applications using React and TypeScript",
@@ -35,9 +35,9 @@ const Experience = () => {
       ]
     },
     {
-      title: "Junior Developer",
-      company: "Startup Solutions",
-      duration: "2020 - 2021",
+      title: "Data Analyst Intern - Business Intelligence Team",
+      company: "Tradelink Technologies",
+      duration: "Jun 2023 - Aug 2023",
       logo: "/api/placeholder/60/60",
       contributions: [
         "Built RESTful APIs using Node.js and Express framework",
@@ -47,9 +47,9 @@ const Experience = () => {
       ]
     },
     {
-      title: "Software Developer Intern",
-      company: "Innovation Labs",
-      duration: "2019 - 2020",
+      title: "Private Tutor",
+      company: "Self-employed",
+      duration: "2024-2025",
       logo: "/api/placeholder/60/60",
       contributions: [
         "Assisted in development of mobile applications using React Native",

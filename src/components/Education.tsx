@@ -29,7 +29,9 @@ const Education = () => {
       honors: [
         "2021 Admission Scholarship Awardee (4 years)",
         "2022 Dean's List Scholar",
-        "2023 Teaching Outstanding Performance Award"
+        "2023 Teaching Outstanding Performance Award",
+        "2023-2024 Dean's List Scholar",
+        "Got a perfect score in the final semester with a GPA of 4.30"
       ],
       exchange: "Selected to attend an exchange semester at the University of Waterloo, Canada during Fall 2023/24",
       icon: <Image src="/hkustlogo_no_bg_new.png" alt="HKUST" width={50} height={50} />,
