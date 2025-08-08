@@ -164,7 +164,8 @@ const Hero = () => {
               transition={{ duration: 1.2, ease: 'easeOut' }}
               className="text-center text-[clamp(2.5rem,10vw,8rem)] font-light italic tracking-wide text-white dark:text-white leading-tight font-[georgia]"
               style={{
-                WebkitTextStroke: '2px rgba(0, 0, 0, 0.3)',
+                WebkitTextStroke: '2px rgba(255, 255, 255, 0.3)',
+                textShadow: '0 0 100px rgba(0, 0, 0, 0.5)',
               }}
             >
               Lovera Lokeswara
@@ -176,6 +177,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
               className="text-white text-xl md:text-2xl font-light mt-4 tracking-wider"
+              style={{
+                textShadow: '0 0 100px rgba(0, 0, 0, 0.5)',
+              }}
             >
               Data Science & AI Enthusiast
             </motion.p>

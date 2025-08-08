@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, ExternalLink, Code2 } from "lucide-react";
+import Image from "next/image";
 
 const Projects = () => {
   const ref = useRef(null);
@@ -11,52 +12,52 @@ const Projects = () => {
 
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with modern technologies for optimal performance.",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Gromov-Wasserstein Improvement for Low Dimension",
+      description: "This project proposes a framework for solving the Gromov-Wasserstein problem between low-dimensional Euclidean point clouds by reformulating it as a low-rank concave Quadratic Assignment Problem (QAP), ensuring global optimality and scalability. The method is evaluated based on computation time and the number of iterations required to reach the optimal solution.",
+      tech: ["Python", "Pandas", "Numpy", "Matplotlib", "Seaborn", "Gromov-Wasserstein Distance", "Scipy"],
+      github: "https://github.com/LoveraLokeswara/Gromov_Wasserstein_for_Low_Dimension/tree/main",
+      demo: "https://github.com/LoveraLokeswara/Gromov_Wasserstein_for_Low_Dimension/blob/main/Modified%20Algorithm_MNIST.ipynb",
+      image: "/demo_gromov.png"
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management application with real-time updates, team collaboration features, and intuitive drag-and-drop interface.",
-      tech: ["Next.js", "TypeScript", "Prisma", "WebSocket"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Style Transfer",
+      description: "This project implements a style transfer algorithm that allows users to transfer the style of one image onto another. It uses a pre-trained VGG19 model to extract features from the style image and the content image, and then uses these features to generate a new image that has the style of the style image and the content of the content image.",
+      tech: ["Python", "PyTorch", "VGG19", "Matplotlib", "Numpy", "TensorFlow", "Keras"],
+      github: "https://github.com/LoveraLokeswara/Style-Transfer",
+      demo: "https://github.com/LoveraLokeswara/Style-Transfer/blob/main/report.pdf",
+      image: "/demo_style_transfer.png"
     },
     {
-      title: "Weather Dashboard",
-      description: "Real-time weather dashboard with interactive maps, forecasts, and location-based alerts. Features responsive design and offline capabilities.",
-      tech: ["React", "D3.js", "Weather API", "PWA"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Airbnb Improvement Recommendation System",
+      description: "This project aims to develop a machine learning model that predicts Airbnb listing review scores based on various listing features, with the goal of offering actionable recommendations to help hosts improve their ratings and competitiveness. To ensure model accuracy, the data was preprocessed to remove biased ratings, and training was conducted using Google Colab Pro for enhanced computational performance.",
+      tech: ["Python", "Scikit-learn", "Keras", "Neural Network", "TensorFlow", "Matplotlib", "Seaborn", "Scipy"],
+      github: "https://github.com/LoveraLokeswara/Airbnb-Improvement-Recommendation-System",
+      demo: "https://github.com/LoveraLokeswara/Airbnb-Improvement-Recommendation-System/blob/main/code.ipynb",
+      image: "/demo_airbnb.png"
     },
     {
-      title: "Social Media Analytics",
-      description: "Analytics platform for social media performance tracking with data visualization, automated reporting, and insights generation.",
-      tech: ["Vue.js", "Python", "MongoDB", "Chart.js"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Private Education Platform",
+      description: "This project is a simple web-based private education platform focused on math tutoring, designed to help students improve their math skills through personalized learning. It includes access to practice materials and offers the option to contact the tutor directly for additional one-on-one classes.",
+      tech: ["Python", "Vite", "TypeScript", "React", "shadcn-ui", "Tailwind CSS"],
+      github: "https://github.com/LoveraLokeswara/edu-math-connect",
+      demo: "https://edu-math-connect.lovable.app/",
+      image: "/demo_math.png"
     },
     {
-      title: "Learning Management System",
-      description: "Complete LMS with course creation, student progress tracking, interactive quizzes, and video streaming capabilities.",
-      tech: ["React", "Express", "MySQL", "AWS"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Turkish Chess",
+      description: "Developed a chess game with a smart AI tool based on the concept of Recursion and Mini-Max Algorithm. AI was set to ever-evolve to re-evaluate and build efficient methods to beat previous patterns. ",
+      tech: ["C++", "Recursion", "Mini-Max Algorithm", "Chess", "Game Development"],
+      github: "https://github.com/LoveraLokeswara/Turkish-Chess/blob/main/Turkish%20Chess.cpp",
+      demo: "https://github.com/LoveraLokeswara/Turkish-Chess/blob/main/Turkish%20Chess.cpp",
+      image: "/demo_chess.jpg"
     },
     {
-      title: "Portfolio Website",
-      description: "Responsive portfolio website with dark mode, smooth animations, and optimized performance. Built with modern web technologies.",
-      tech: ["Next.js", "Tailwind", "Framer Motion", "TypeScript"],
-      github: "#",
-      demo: "#",
-      image: "/api/placeholder/400/250"
+      title: "Bali Itinerary Planner",
+      description: "Developed a program that allows users to plan their itinerary for a trip to Bali, Indonesia. The application provides a user-friendly interface for selecting destinations, attractions, and activities, and generates a customized itinerary based on the user's preferences and constraints.",
+      tech: ["Python", "Pandas", "Geopanda", "Streamlit", "Shapely"],
+      github: "https://github.com/LoveraLokeswara/bali_itinerary_planning",
+      demo: "https://github.com/LoveraLokeswara/bali_itinerary_planning/blob/main/itinerary_planning.ipynb",
+      image: "/demo_bali.png"
     }
   ];
 
@@ -98,12 +99,14 @@ const Projects = () => {
               className="bg-card rounded-xl border border-border overflow-hidden hover:border-border/60 transition-all duration-300 group"
             >
               {/* Project Image Placeholder */}
-              <div className="h-48 bg-muted flex items-center justify-center overflow-hidden">
-                <div className="text-center text-muted-foreground group-hover:scale-105 transition-transform duration-300">
-                  <Code2 className="w-12 h-12 mx-auto mb-2" />
-                  <p className="text-sm">Project Screenshot</p>
-                  <p className="text-xs">Replace with actual image</p>
-                </div>
+              <div className="h-48 bg-muted flex items-center justify-center overflow-hidden p-4">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={400}
+                  height={250}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-lg"
+                />
               </div>
 
               <div className="p-6">
