@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, time } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Building2, Calendar } from "lucide-react";
@@ -16,10 +16,10 @@ const Experience = () => {
       duration: "May 2025 - Aug 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "Led development of microservices architecture reducing load times by 40%",
-        "Mentored junior developers and established code review best practices",
-        "Implemented CI/CD pipelines improving deployment efficiency by 60%",
-        "Collaborated with cross-functional teams to deliver user-centric solutions"
+        "•	Built a PDF processing tool with Python and Streamlit, featuring text, table, and figure extraction using PyMuPDF and custom parsing logic; included structured export (TXT, CSV, JSON) and integrated chat-based PDF querying.",
+        "•	Developed an API for OACIQ to extract and process document content.",
+        "•	Implemented a WhatsApp customer service bot powered by LLMs using A1Base and N8N automation for AQUA Electronics (Indonesia).",
+        "•	Built a voice AI customer support system using VAPI and ElevenLabs."
       ]
     },
     {
@@ -28,10 +28,10 @@ const Experience = () => {
       duration: "Jun 2024 - Aug 2024",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "Developed responsive web applications using React and TypeScript",
-        "Optimized application performance resulting in 50% faster page loads",
-        "Worked closely with designers to implement pixel-perfect UI components",
-        "Maintained and refactored legacy codebase to modern standards"
+        "•	Quantified and estimated revenue that can be brought upon the company by implementing various Machine Learning models in operation, revenue, and engagement aspects. ",
+        "•	Acted as Project Manager for Cathay Hackathon 2024. Organized and led initiatives by adopting an agile approach with external partners (Huawei, Apple, Microsoft, Alibaba, Amazon) resulting in significant operational progress for the event.",
+        "•	Developed a Bayesian machine learning model using PyMC to analyze 55,000 user reports, enabling the engineering team to identify and prioritize key areas for issue resolution in the in-flight entertainment system.",
+        "•	Proposed a solution to improve in-flight crew service effectiveness through smart wearable technology that leverages AI and machine learning algorithms with the goal of ensuring seamless interactions between cabin crews and customers."
       ]
     },
     {
@@ -40,22 +40,22 @@ const Experience = () => {
       duration: "Jun 2023 - Aug 2023",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "Built RESTful APIs using Node.js and Express framework",
-        "Implemented database schemas and optimized queries for better performance",
-        "Participated in agile development process and daily standups",
-        "Contributed to open source projects and internal tool development"
+        "•	Built a feature that allowed clients to access relevant news pertaining to their shipment status. Feature was developed through SEO practices which filters for news centered on a client.",
+        "•	Researched and analyzed internal data to identify discrepancies in shipment and order records to ensure exact documentation of data within our client facing application.",
+        "•	Visualized an upwards of 40,000 purchase order records through Pivot tooling to provide insights on possible process improvements and potential blockers which then allowed the business to focus on addressing pivotal areas.",
+        "•	Resolved stakeholder issues by processing inconsistent report records caused by time zone difference."
       ]
     },
     {
       title: "Private Tutor",
       company: "Self-employed",
-      duration: "2024-2025",
+      duration: "2024 - 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "Assisted in development of mobile applications using React Native",
-        "Wrote comprehensive unit tests achieving 85% code coverage",
-        "Participated in code reviews and learned industry best practices",
-        "Collaborated on documentation and technical specification writing"
+        "•	Assisted in development of mobile applications using React Native",
+        "•	Wrote comprehensive unit tests achieving 85% code coverage",
+        "•	Participated in code reviews and learned industry best practices",
+        "•	Collaborated on documentation and technical specification writing"
       ]
     }
   ];
@@ -137,7 +137,7 @@ const Experience = () => {
                       className="text-muted-foreground text-sm leading-relaxed flex items-start gap-2"
                     >
                       <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0" />
-                      {contribution}
+                      <span className="text-justify">{contribution}</span>
                     </li>
                   ))}
                 </ul>

@@ -17,7 +17,7 @@ const Hero = () => {
   // Background positioning - fixed until past About section (around 40% scroll)
   const backgroundPosition = useTransform(
     scrollYProgress,
-    [0, 0.3, 0.41],
+    [0, 0.2, 0.41],
     ["fixed", "fixed", "absolute"]
   );
 

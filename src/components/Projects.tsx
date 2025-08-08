@@ -96,7 +96,7 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={item}
-              className="bg-card rounded-xl border border-border overflow-hidden hover:border-border/60 transition-all duration-300 group"
+              className="bg-card rounded-xl border border-border overflow-hidden hover:border-border/60 transition-all duration-300 group flex flex-col h-full"
             >
               {/* Project Image Placeholder */}
               <div className="h-48 bg-muted flex items-center justify-center overflow-hidden p-4">
@@ -109,7 +109,7 @@ const Projects = () => {
                 />
               </div>
 
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-grow">
                 <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
@@ -131,10 +131,10 @@ const Projects = () => {
                 </div>
 
                 {/* Links */}
-                <div className="flex gap-4">
+                <div className="flex gap-4 mt-auto">
                   <a
                     href={project.github}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                    className="flex items-center gap-2 text-[#24292e] hover:text-[#0969da] transition-colors"
                     aria-label={`View ${project.title} on GitHub`}
                   >
                     <Github className="w-4 h-4" />
@@ -142,7 +142,7 @@ const Projects = () => {
                   </a>
                   <a
                     href={project.demo}
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                    className="flex items-center gap-2 text-[#24292e] hover:text-[#0969da] transition-colors"
                     aria-label={`View ${project.title} demo`}
                   >
                     <ExternalLink className="w-4 h-4" />
