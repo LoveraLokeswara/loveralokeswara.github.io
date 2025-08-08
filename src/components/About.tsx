@@ -51,7 +51,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-4 items-center">
           {/* Profile Photo */}
           <div
-            className="flex justify-center lg:justify-start"
+            className="flex justify-center lg:justify-end lg:mr-30"
           >
             <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
               <div className="text-center text-muted-foreground">
@@ -82,12 +82,14 @@ const About = () => {
               </p>
             </div>
 
-            <button
+            <a
+              href="/[Jan 2025] Lovera Lokeswara - CV.pdf"
+              download="[Jan 2025] Lovera Lokeswara - CV.pdf"
               className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200"
             >
               <Download className="w-4 h-4" />
               Download CV
-            </button>
+            </a>
           </div>
         </div>
 
