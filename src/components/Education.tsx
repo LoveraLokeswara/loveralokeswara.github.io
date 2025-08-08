@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Award, MapPin } from "lucide-react";
+import { Award, MapPin } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 

@@ -3,7 +3,7 @@
 import { ChevronDown } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Hero = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +12,6 @@ const Hero = () => {
   // Scroll-based animations
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]); // Increase opacity as we scroll
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const contentY = useTransform(scrollYProgress, [0, 1], ["100vh", "0vh"]);
   
   // Background positioning - fixed until past About section (around 40% scroll)
   const backgroundPosition = useTransform(
@@ -97,7 +96,7 @@ const Hero = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="hidden md:flex items-center space-x-8"
               >
-                {navItems.map((item, index) => (
+                {navItems.map((item) => (
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.href.slice(1))}
@@ -230,10 +229,10 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
               >
                 <p className="text-lg text-black mb-6">
-                  Welcome to my corner of the web! I'm passionate about turning ideas into meaningful digital experiences. 
+                  Welcome to my corner of the web! I&apos;m passionate about turning ideas into meaningful digital experiences. 
                 </p>
                 <p className="text-lg text-black">
-                  With a First Class Honors degree in Data Science & Technology from HKUST and currently studying for my Master's in Data Science & AI at Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
+                  With a First Class Honors degree in Data Science & Technology from HKUST and currently studying for my Master&apos;s in Data Science & AI at Waterloo, I enjoy exploring the intersection of data, statistics, and machine learning to uncover insights and build intelligent, human-centered solutions.
                 </p>
               </motion.div>
               <motion.div

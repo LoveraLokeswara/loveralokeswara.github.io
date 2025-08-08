@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Code2, Database, Globe, Smartphone, Server, GitBranch } from "lucide-react";
+import { Download } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -75,10 +75,10 @@ const About = () => {
           >
             <div className="space-y-4">
               <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a passionate data scientist with internship experience spanning data analysis, data science, and software engineering, focused on creating solutions that make a real impact. I love transforming complex datasets into clear insights and building intuitive data-driven applications.
+              I&apos;m a passionate data scientist with internship experience spanning data analysis, data science, and software engineering, focused on creating solutions that make a real impact. I love transforming complex datasets into clear insights and building intuitive data-driven applications.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                When I'm not coding, you can find me wandering around the city, discovering great food spots, playing board games, or having way too much fun at karaoke nights! I believe in continuous learning and keeping up with the latest trends in data science and AI.
+                When I&apos;m not coding, you can find me wandering around the city, discovering great food spots, playing board games, or having way too much fun at karaoke nights! I believe in continuous learning and keeping up with the latest trends in data science and AI.
               </p>
             </div>
 

@@ -69,7 +69,7 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, interesting projects, 
+            I&apos;m always open to discussing new opportunities, interesting projects, 
             or just having a chat about technology and development.
           </p>
         </div>
@@ -144,9 +144,9 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-shadow-md text-xl font-semibold text-foreground mb-6">Let's Connect</h3>
+              <h3 className="text-shadow-md text-xl font-semibold text-foreground mb-6">Let&apos;s Connect</h3>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Whether you're working on a project, exploring a collaboration, or simply want to connect — I'd be happy to hear from you.
+                Whether you&apos;re working on a project, exploring a collaboration, or simply want to connect — I&apos;d be happy to hear from you.
                 Feel free to reach out through any of the channels below 👇
               </p>
             </div>

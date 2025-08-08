@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, time } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Building2, Calendar } from "lucide-react";

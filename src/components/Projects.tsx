@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, ExternalLink, Code2 } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 const Projects = () => {
