@@ -98,7 +98,7 @@ const About = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mt-20 py-16 px-8 rounded-3xl relative overflow-hidden"
           style={{
             backgroundImage: `
