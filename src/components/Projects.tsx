@@ -123,7 +123,7 @@ const Projects = () => {
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-secondary text-secondary-foreground px-2 py-1 rounded text-xs"
+                      className="bg-gray-100 dark:bg-gray-800 text-foreground px-3 py-1.5 rounded-md text-xs font-medium"
                     >
                       {tech}
                     </span>
