@@ -1,14 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  // Remove output: 'export' for Vercel (use server-side rendering)
+  // output: 'export',
   trailingSlash: true,
   images: {
-    unoptimized: true
+    // Enable optimized images for Vercel
+    unoptimized: false
   },
-  // Remove this if your repo name is different
-  basePath: process.env.NODE_ENV === 'production' ? '/loveralokeswara.github.io' : '',
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/loveralokeswara.github.io/' : '',
+  // Remove basePath and assetPrefix for Vercel
+  // basePath: process.env.NODE_ENV === 'production' ? '/loveralokeswara.github.io' : '',
+  // assetPrefix: process.env.NODE_ENV === 'production' ? '/loveralokeswara.github.io/' : '',
 };
 
 export default nextConfig;
