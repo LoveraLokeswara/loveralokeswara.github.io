@@ -76,7 +76,7 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 px-6">
+    <section id="experience" className="min-h-screen py-20 px-6 flex items-center justify-center">
       <div className="container mx-auto max-w-4xl">
         <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
           Work Experience
@@ -90,25 +90,24 @@ const Experience = () => {
           variants={container}
           initial="hidden"
           animate={isInView ? "show" : "hidden"}
-          className="space-y-8"
+          className="space-y-12 flex flex-col items-center justify-center"
         >
+          {/* Timeline Line - Centered */}
+          <div className="absolute left-1/2 transform -translate-x-0.5 top-32 w-0.5 h-3/4 bg-border" />
+          
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
               variants={item}
-              className="relative pl-8 pb-8 last:pb-0"
+              className="relative w-full max-w-2xl flex justify-center"
             >
-              {/* Timeline Line */}
-              {index !== experiences.length - 1 && (
-                <div className="absolute left-[15px] top-12 w-0.5 h-full bg-border" />
-              )}
-              
-              {/* Timeline Dot */}
-              <div className="absolute left-0 top-0 w-8 h-8 bg-foreground rounded-full flex items-center justify-center">
+              {/* Timeline Dot - Centered */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 -top-6 w-8 h-8 bg-foreground rounded-full flex items-center justify-center z-10">
                 <div className="w-3 h-3 bg-background rounded-full" />
               </div>
 
-              <div className="bg-card border border-border rounded-xl p-6 ml-6 hover:border-border/60 transition-colors">
+              {/* Experience Card - Centered */}
+              <div className="bg-card border border-border rounded-xl p-6 w-full hover:border-border/60 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="flex items-start gap-4 mb-4 md:mb-0">
                     {/* Company Logo Placeholder */}
