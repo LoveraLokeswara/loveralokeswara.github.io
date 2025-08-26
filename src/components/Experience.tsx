@@ -16,10 +16,10 @@ const Experience = () => {
       duration: "May 2025 - Aug 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "•	Built a PDF processing tool with Python and Streamlit, featuring text, table, and figure extraction using PyMuPDF and custom parsing logic; included structured export (TXT, CSV, JSON) and integrated chat-based PDF querying.",
-        "•	Developed an API for OACIQ to extract and process document content.",
-        "•	Implemented a WhatsApp customer service bot powered by LLMs using A1Base and N8N automation for AQUA Electronics (Indonesia).",
-        "•	Built a voice AI customer support system using VAPI and ElevenLabs."
+        "•	Designed and deployed a PDF Processing API (Python and Streamlit) with integrated LLM chatbot, automated parser, and multi-format export (TXT, CSV, JSON).",
+        "•	Built an automated compliance report generator that benchmarked documents against client-specific checklists, giving recommendations and warnings, and resulted in improved accuracy and efficiency of audits.",
+        "•	Developed an AI-powered WhatsApp customer service bot by integrating A1Base with N8N, automating response to product inquiries and reducing manual support workload by leveraging LLM.",
+        "•	Created a voice AI agent using VAPI and ElevenLabs, implementing NLP pipelines for real-time speech understanding and enhancing customer experience."
       ]
     },
     {
@@ -31,7 +31,7 @@ const Experience = () => {
         "•	Quantified and estimated revenue that can be brought upon the company by implementing various Machine Learning models in operation, revenue, and engagement aspects. ",
         "•	Acted as Project Manager for Cathay Hackathon 2024. Organized and led initiatives by adopting an agile approach with external partners (Huawei, Apple, Microsoft, Alibaba, Amazon) resulting in significant operational progress for the event.",
         "•	Developed a Bayesian machine learning model using PyMC to analyze 55,000 user reports, enabling the engineering team to identify and prioritize key areas for issue resolution in the in-flight entertainment system.",
-        "•	Proposed a solution to improve in-flight crew service effectiveness through smart wearable technology that leverages AI and machine learning algorithms with the goal of ensuring seamless interactions between cabin crews and customers."
+        "•	Created a solution to improve in-flight crew service effectiveness through smart wearable technology that leverages AI and machine learning algorithms with the goal of ensuring seamless interactions between cabin crews and customers."
       ]
     },
     {
