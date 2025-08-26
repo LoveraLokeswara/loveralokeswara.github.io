@@ -16,6 +16,11 @@ const Education = () => {
       program: "(Co-op program)",
       duration: "Sep 2025 - Dec 2026",
       status: "Expected",
+      courses: [
+        "CS 679: Neural Networks",
+        "CS 794: Optimization for Data Science",
+        "STAT 974: Financial Econometrics",
+      ],
       icon: <Image src="/uwaterloo.png" alt="University of Waterloo" width={50} height={50} />,
     },
     {
@@ -24,6 +29,16 @@ const Education = () => {
       degree: "Bachelor of Science in Data Science and Technology",
       gpa: "GPA: 3.67",
       duration: "Sep 2021 - Dec 2024",
+      courses: [
+        "COMP 3211: Fundamentals of Artificial Intelligence",
+        "COMP 3311: Database Management Systems",
+        "COMP 3711: Design and Analysis of Algorithms",
+        "COMP 4211: Machine Learning",
+        "MATH 3332: Data Analytics Tools",
+        "MATH 3424: Regression Analysis",
+        "MATH 3425: Stochastic Modelling",
+        "MATH 4424: Multivariate Analysis",
+      ],
       status: "Completed",
       distinction: "First Class Honors Graduate",
       honors: [
@@ -161,6 +176,17 @@ const Education = () => {
                         <ul className="list-disc list-inside space-y-1 text-muted-foreground">
                           {edu.honors.map((honor, honorIndex) => (
                             <li key={honorIndex}>{honor}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {edu.courses && (
+                      <div className="mb-4">
+                        <h4 className="font-medium text-foreground mb-2">Key Courses:</h4>
+                        <ul className="list-disc list-inside space-y-1 text-muted-foreground">
+                          {edu.courses.map((course, courseIndex) => (
+                            <li key={courseIndex}>{course}</li>
                           ))}
                         </ul>
                       </div>

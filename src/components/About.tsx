@@ -131,7 +131,7 @@ const About = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: 1.4 + index * 0.05, ease: "easeOut" }}
+                  transition={{ duration: 0.3, delay: 0.4 + index * 0.05, ease: "easeOut" }}
                   className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
                 >
                   <div className="flex justify-center text-foreground">
@@ -180,7 +180,7 @@ const About = () => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 1.8, ease: "easeOut" }}
+                transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
                 className="text-center mt-8"
               >
                 <motion.button
