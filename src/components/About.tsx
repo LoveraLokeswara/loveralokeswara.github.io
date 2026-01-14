@@ -8,33 +8,62 @@ import { motion, AnimatePresence } from "framer-motion";
 const About = () => {
   const [showAllSkills, setShowAllSkills] = useState(false);
   
-  const skills = [
-    { name: 'C++', icon: '⚙️' },
-    { name: 'Python', icon: '🐍' },
-    { name: 'Figma', icon: '🎨' },
-    { name: 'SQL', icon: '🗄️' },
-    { name: 'MATLAB', icon: '📊' },
-    { name: 'R', icon: '📈' },
-    { name: 'PowerBI', icon: '📊' },
-    { name: 'Econometrics', icon: '📈' },
-    { name: 'Machine Learning', icon: '📊' },
-    { name: 'Regression Analysis', icon: '📈' },
-    { name: 'Tableau', icon: '📊' },
-    { name: 'VBA', icon: '🧮' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'TypeScript', icon: '📘' },
-    { name: 'Node.js', icon: '💚' },
-    { name: 'JavaScript', icon: '💛' },
-    { name: 'HTML/CSS', icon: '🎨' },
-    { name: 'Git', icon: '📂' },
-    { name: 'AWS', icon: '☁️' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'Oracle', icon: '🧱' },
+  const skillCategories = [
+    {
+      category: "Languages",
+      skills: [
+        { name: 'Python', icon: 'devicon-python-plain colored' },
+        { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+        { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
+        { name: 'C++', icon: 'devicon-cplusplus-plain colored' },
+        { name: 'R', icon: 'devicon-r-plain colored' },
+        { name: 'SQL', icon: 'devicon-azuresqldatabase-plain colored' },
+      ]
+    },
+    {
+      category: "Frameworks & Libraries",
+      skills: [
+        { name: 'React', icon: 'devicon-react-original colored' },
+        { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
+        { name: 'HTML/CSS', icon: 'devicon-html5-plain colored' },
+      ]
+    },
+    {
+      category: "Tools & Platforms",
+      skills: [
+        { name: 'Git', icon: 'devicon-git-plain colored' },
+        { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark colored' },
+        { name: 'Figma', icon: 'devicon-figma-plain colored' },
+        { name: 'PowerBI', icon: 'devicon-azuresqldatabase-plain colored' },
+        { name: 'Tableau', icon: 'devicon-azuresqldatabase-plain colored' },
+        { name: 'MATLAB', icon: 'devicon-matlab-plain colored' },
+      ]
+    },
+    {
+      category: "Databases",
+      skills: [
+        { name: 'PostgreSQL', icon: 'devicon-postgresql-plain colored' },
+        { name: 'MongoDB', icon: 'devicon-mongodb-plain colored' },
+        { name: 'Oracle', icon: 'devicon-oracle-original colored' },
+      ]
+    },
+    {
+      category: "Data Science & Analytics",
+      skills: [
+        { name: 'Machine Learning', icon: 'devicon-tensorflow-original colored' },
+        { name: 'Econometrics', icon: 'devicon-python-plain colored' },
+        { name: 'Regression Analysis', icon: 'devicon-python-plain colored' },
+      ]
+    }
   ];
 
-  const initialSkills = skills.slice(0, 8);
-  const additionalSkills = skills.slice(8);
+  // Flatten all skills for the show more/less functionality
+  const allSkills = skillCategories.flatMap(cat => 
+    cat.skills.map(skill => ({ ...skill, category: cat.category }))
+  );
+  
+  const initialSkills = allSkills.slice(0, 8);
+  const additionalSkills = allSkills.slice(8);
 
   return (
     <section
@@ -135,7 +164,7 @@ const About = () => {
                   className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
                 >
                   <div className="flex justify-center text-foreground">
-                    <span className="text-3xl">{skill.icon}</span>
+                    <i className={`${skill.icon} text-5xl`}></i>
                   </div>
                   <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
                 </motion.div>
@@ -166,7 +195,7 @@ const About = () => {
                     className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
                   >
                     <div className="flex justify-center text-foreground">
-                      <span className="text-3xl">{skill.icon}</span>
+                      <i className={`${skill.icon} text-5xl`}></i>
                     </div>
                     <h4 className="text-lg font-semibold text-foreground">{skill.name}</h4>
                   </motion.div>
@@ -175,7 +204,7 @@ const About = () => {
             </div>
 
             {/* Show More/Less Button */}
-            {skills.length > 8 && (
+            {allSkills.length > 8 && (
               <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
