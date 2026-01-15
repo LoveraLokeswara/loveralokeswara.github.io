@@ -180,7 +180,7 @@ const Hero = () => {
                 textShadow: '0 0 100px rgba(0, 0, 0, 0.5)',
               }}
             >
-              Data Science & AI Enthusiast
+              Data Science & AI/ML Engineer
             </motion.p>
           </motion.div>
         </div>
