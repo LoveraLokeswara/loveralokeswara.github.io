@@ -84,7 +84,7 @@ const About = () => {
           {'// Building intelligent solutions with data'}
         </p>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center mb-20">
           {/* Profile Photo with tech frame */}
           <div className="flex justify-center lg:justify-end">
             <div className="relative group">
@@ -115,7 +115,7 @@ const About = () => {
           </div>
 
           {/* Bio and CV with tech styling */}
-          <div className="space-y-6 lg:-ml-8">
+          <div className="space-y-6">
             <div className="space-y-4 bg-slate-800/30 p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm">
               <p className="text-lg text-slate-300 leading-relaxed">
                 <span className="text-cyan-400 font-mono text-sm">{'> '}</span>

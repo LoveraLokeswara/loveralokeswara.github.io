@@ -16,10 +16,10 @@ const Experience = () => {
       duration: "May 2025 - Aug 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "•	Designed and deployed a PDF Processing API (Python and Streamlit) with integrated LLM chatbot, automated parser, and multi-format export (TXT, CSV, JSON).",
-        "•	Built an automated compliance report generator that benchmarked documents against client-specific checklists, giving recommendations and warnings, and resulted in improved accuracy and efficiency of audits.",
-        "•	Developed an AI-powered WhatsApp customer service bot by integrating A1Base with N8N, automating response to product inquiries and reducing manual support workload by leveraging LLM.",
-        "•	Created a voice AI agent using VAPI and ElevenLabs, implementing NLP pipelines for real-time speech understanding and enhancing customer experience."
+        "Designed and deployed a PDF Processing API (Python and Streamlit) with integrated LLM chatbot, automated parser, and multi-format export (TXT, CSV, JSON).",
+        "Built an automated compliance report generator that benchmarked documents against client-specific checklists, giving recommendations and warnings, and resulted in improved accuracy and efficiency of audits.",
+        "Developed an AI-powered WhatsApp customer service bot by integrating A1Base with N8N, automating response to product inquiries and reducing manual support workload by leveraging LLM.",
+        "Created a voice AI agent using VAPI and ElevenLabs, implementing NLP pipelines for real-time speech understanding and enhancing customer experience."
       ]
     },
     {
@@ -28,10 +28,10 @@ const Experience = () => {
       duration: "Jun 2024 - Aug 2024",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "•	Quantified and estimated revenue that can be brought upon the company by implementing various Machine Learning models in operation, revenue, and engagement aspects. ",
-        "•	Acted as Project Manager for Cathay Hackathon 2024. Organized and led initiatives by adopting an agile approach with external partners (Huawei, Apple, Microsoft, Alibaba, Amazon) resulting in significant operational progress for the event.",
-        "•	Developed a Bayesian machine learning model using PyMC to analyze 55,000 user reports, enabling the engineering team to identify and prioritize key areas for issue resolution in the in-flight entertainment system.",
-        "•	Created a solution to improve in-flight crew service effectiveness through smart wearable technology that leverages AI and machine learning algorithms with the goal of ensuring seamless interactions between cabin crews and customers."
+        "Quantified and estimated revenue that can be brought upon the company by implementing various Machine Learning models in operation, revenue, and engagement aspects. ",
+        "Acted as Project Manager for Cathay Hackathon 2024. Organized and led initiatives by adopting an agile approach with external partners (Huawei, Apple, Microsoft, Alibaba, Amazon) resulting in significant operational progress for the event.",
+        "Developed a Bayesian machine learning model using PyMC to analyze 55,000 user reports, enabling the engineering team to identify and prioritize key areas for issue resolution in the in-flight entertainment system.",
+        "Created a solution to improve in-flight crew service effectiveness through smart wearable technology that leverages AI and machine learning algorithms with the goal of ensuring seamless interactions between cabin crews and customers."
       ]
     },
     {
@@ -40,10 +40,10 @@ const Experience = () => {
       duration: "Jun 2023 - Aug 2023",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "•	Built a feature that allowed clients to access relevant news pertaining to their shipment status. Feature was developed through SEO practices which filters for news centered on a client.",
-        "•	Researched and analyzed internal data to identify discrepancies in shipment and order records to ensure exact documentation of data within our client facing application.",
-        "•	Visualized an upwards of 40,000 purchase order records through Pivot tooling to provide insights on possible process improvements and potential blockers which then allowed the business to focus on addressing pivotal areas.",
-        "•	Resolved stakeholder issues by processing inconsistent report records caused by time zone difference."
+        "Built a feature that allowed clients to access relevant news pertaining to their shipment status. Feature was developed through SEO practices which filters for news centered on a client.",
+        "Researched and analyzed internal data to identify discrepancies in shipment and order records to ensure exact documentation of data within our client facing application.",
+        "Visualized an upwards of 40,000 purchase order records through Pivot tooling to provide insights on possible process improvements and potential blockers which then allowed the business to focus on addressing pivotal areas.",
+        "Resolved stakeholder issues by processing inconsistent report records caused by time zone difference."
       ]
     },
     {
@@ -52,10 +52,10 @@ const Experience = () => {
       duration: "2024 - 2025",
       logo: "/api/placeholder/60/60",
       contributions: [
-        "•	Assisted in development of mobile applications using React Native",
-        "•	Wrote comprehensive unit tests achieving 85% code coverage",
-        "•	Participated in code reviews and learned industry best practices",
-        "•	Collaborated on documentation and technical specification writing"
+        "Assisted in development of mobile applications using React Native",
+        "Wrote comprehensive unit tests achieving 85% code coverage",
+        "Participated in code reviews and learned industry best practices",
+        "Collaborated on documentation and technical specification writing"
       ]
     }
   ];
