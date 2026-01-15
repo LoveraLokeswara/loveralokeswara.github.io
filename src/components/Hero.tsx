@@ -10,15 +10,7 @@ const Hero = () => {
   const { scrollYProgress } = useScroll();
   
   // Scroll-based animations
-  const backgroundOpacity = useTransform(scrollYProgress, [0, 0.5], [0.7, 1]); // Increase opacity as we scroll
   const textOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  
-  // Background positioning - fixed until past About section (around 40% scroll)
-  const backgroundPosition = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.41],
-    ["fixed", "fixed", "absolute"]
-  );
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);

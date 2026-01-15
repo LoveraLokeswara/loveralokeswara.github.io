@@ -2,12 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Award, MapPin } from "lucide-react";
-import { useTheme } from "./ThemeProvider";
 import Image from "next/image";
 
 const Education = () => {
-  const { theme } = useTheme();
-  
   const education = [
     {
       institution: "University of Waterloo",
@@ -70,24 +67,6 @@ const Education = () => {
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
-  };
-
-  // Theme-aware background styles
-  const backgroundStyles = {
-    backgroundImage: theme === 'dark' 
-      ? `
-          linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03)),
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.08) 0%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.08) 0%),
-          radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.05) 0%)
-        `
-      : `
-          linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
-          radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-          radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.15) 0%, transparent 50%),
-          radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.1) 0%, transparent 50%)
-        `,
-    backgroundSize: '100% 100%, 100% 100%, 100% 100%'
   };
 
   return (
