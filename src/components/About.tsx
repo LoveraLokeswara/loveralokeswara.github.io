@@ -66,23 +66,39 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 px-6 bg-white relative z-10"
+      className="py-20 px-6 bg-gradient-to-b from-slate-900 to-slate-800 relative z-10 overflow-hidden"
     >
-      <div className="container mx-auto max-w-6xl">
-        <h2
-          className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center"
-        >
-          About Me
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            &lt;About Me /&gt;
+          </span>
         </h2>
+        <p className="text-center text-cyan-400 font-mono text-sm mb-16">
+          {'// Building intelligent solutions with data'}
+        </p>
 
-        <div className="grid lg:grid-cols-2 gap-4 items-center">
-          {/* Profile Photo */}
-          <div
-            className="flex justify-center lg:justify-end lg:mr-30"
-          >
-            <div className="w-80 h-80 bg-muted rounded-2xl flex items-center justify-center">
-              <div className="text-center text-muted-foreground">
-                <div className="w-64 h-64 lg:w-80 lg:h-80 rectangle-full overflow-hidden ring-4 ring-offset-2 ring-gray-500 ring-offset-white">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-20">
+          {/* Profile Photo with tech frame */}
+          <div className="flex justify-center lg:justify-end">
+            <div className="relative group">
+              {/* Glowing border effect */}
+              <div className="absolute -inset-2 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-2xl blur-lg group-hover:blur-xl transition-all duration-300 opacity-75"></div>
+              
+              {/* Tech corner decorations */}
+              <div className="relative">
+                <div className="absolute -top-3 -left-3 w-6 h-6 border-t-2 border-l-2 border-cyan-400 z-10"></div>
+                <div className="absolute -top-3 -right-3 w-6 h-6 border-t-2 border-r-2 border-cyan-400 z-10"></div>
+                <div className="absolute -bottom-3 -left-3 w-6 h-6 border-b-2 border-l-2 border-cyan-400 z-10"></div>
+                <div className="absolute -bottom-3 -right-3 w-6 h-6 border-b-2 border-r-2 border-cyan-400 z-10"></div>
+                
+                <div className="relative w-80 h-80 rounded-2xl overflow-hidden border-2 border-cyan-500/50">
                   <Image
                     src="/IMG_8212.jpeg"
                     alt="Lovera Lokeswara"
@@ -91,20 +107,22 @@ const About = () => {
                     className="w-full h-full object-cover"
                     priority
                   />
+                  {/* Scanline effect */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent pointer-events-none animate-pulse"></div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Bio and CV */}
-          <div
-            className="space-y-6 lg:-ml-8"
-          >
-            <div className="space-y-4">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-              I&apos;m a passionate data scientist with internship experience spanning data analysis, data science, and software engineering, focused on creating solutions that make a real impact. I love transforming complex datasets into clear insights and building intuitive data-driven applications.
+          {/* Bio and CV with tech styling */}
+          <div className="space-y-6 lg:-ml-8">
+            <div className="space-y-4 bg-slate-800/30 p-6 rounded-xl border border-cyan-500/20 backdrop-blur-sm">
+              <p className="text-lg text-slate-300 leading-relaxed">
+                <span className="text-cyan-400 font-mono text-sm">{'> '}</span>
+                I&apos;m a passionate data scientist with internship experience spanning data analysis, data science, and software engineering, focused on creating solutions that make a real impact. I love transforming complex datasets into clear insights and building intuitive data-driven applications.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-slate-300 leading-relaxed">
+                <span className="text-cyan-400 font-mono text-sm">{'> '}</span>
                 When I&apos;m not coding, you can find me wandering around the city, discovering great food spots, playing board games, or having way too much fun at karaoke nights! I believe in continuous learning and keeping up with the latest trends in data science and AI.
               </p>
             </div>
@@ -112,10 +130,10 @@ const About = () => {
             <a
               href="/Lovera Lokeswara - Resume.pdf"
               download="Lovera Lokeswara - Resume.pdf"
-              className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-3 rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 font-medium border border-cyan-400/50"
             >
               <Download className="w-4 h-4" />
-              Download CV
+              <span>Download CV</span>
             </a>
           </div>
         </div>
@@ -127,10 +145,15 @@ const About = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="text-shadow-md text-3xl font-bold text-foreground mb-12 text-center"
+            className="text-3xl font-bold mb-4 text-center"
           >
-            Skills & Technologies 👩‍💻
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Skills & Technologies 👩‍💻
+            </span>
           </motion.h3>
+          <p className="text-center text-cyan-400 font-mono text-sm mb-12">
+            {'// Tech stack & expertise'}
+          </p>
 
           {/* Category Blocks */}
           <div className="space-y-8">
@@ -141,18 +164,20 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: categoryIndex * 0.1, ease: "easeOut" }}
-                className="py-12 px-8 rounded-3xl relative overflow-hidden"
-                style={{
-                  backgroundImage: `
-                    linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 50%, rgba(236, 72, 153, 0.1) 100%),
-                    radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.15) 0%, transparent 50%),
-                    radial-gradient(circle at 40% 60%, rgba(236, 72, 153, 0.1) 0%, transparent 50%)
-                  `
-                }}
+                className="py-12 px-8 rounded-3xl relative overflow-hidden bg-slate-800/30 border border-cyan-500/20 backdrop-blur-sm"
               >
-                {/* Subtle overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-black/5 dark:from-black/10 dark:via-transparent dark:to-white/5"></div>
+                {/* Tech grid pattern overlay */}
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: `
+                    linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '20px 20px'
+                }}></div>
+                
+                {/* Corner accents */}
+                <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-cyan-500/50"></div>
+                <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-cyan-500/50"></div>
                 
                 <div className="relative z-10">
                   {/* Category Title */}
@@ -161,9 +186,10 @@ const About = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-xl font-bold text-foreground mb-8"
+                    className="text-xl font-bold mb-8"
                   >
-                    {category.category}
+                    <span className="text-cyan-400 font-mono">{'// '}</span>
+                    <span className="text-slate-200">{category.category}</span>
                   </motion.h4>
                   
                   {/* Skills Grid */}
@@ -175,16 +201,19 @@ const About = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.3, delay: skillIndex * 0.05, ease: "easeOut" }}
-                        className="shadow-xl text-center space-y-2 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border hover:border-border/60 hover:bg-card/90 transition-all duration-300"
+                        className="group text-center space-y-2 p-4 rounded-xl bg-slate-900/50 backdrop-blur-sm border border-cyan-500/30 hover:border-cyan-400 hover:shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 relative overflow-hidden"
                       >
-                        <div className="flex justify-center text-foreground">
+                        {/* Hover glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-blue-500/0 group-hover:from-cyan-500/10 group-hover:to-blue-500/10 transition-all duration-300"></div>
+                        
+                        <div className="relative flex justify-center text-cyan-400 group-hover:text-cyan-300 transition-colors">
                           {skill.icon.startsWith('devicon-') ? (
                             <i className={`${skill.icon} text-5xl`}></i>
                           ) : (
                             <span className="text-5xl">{skill.icon}</span>
                           )}
                         </div>
-                        <h5 className="text-sm font-semibold text-foreground">{skill.name}</h5>
+                        <h5 className="relative text-sm font-semibold text-slate-300 font-mono">{skill.name}</h5>
                       </motion.div>
                     ))}
                   </div>

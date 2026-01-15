@@ -95,11 +95,22 @@ const Projects = () => {
   
 
   return (
-    <section id="projects" className="py-20 px-6 bg-muted/20">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-shadow-md text-3xl md:text-4xl font-bold text-foreground mb-16 text-center">
-          Featured Projects
+    <section id="projects" className="py-20 px-6 bg-gradient-to-b from-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
+      </div>
+      
+      <div className="container mx-auto max-w-6xl relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
+          <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            &lt;Featured Projects /&gt;
+          </span>
         </h2>
+        <p className="text-center text-cyan-400 font-mono text-sm mb-16">
+          {'// Showcasing data science & ML projects'}
+        </p>
 
         <motion.div
           ref={ref}
@@ -112,60 +123,72 @@ const Projects = () => {
             <motion.div
               key={index}
               variants={item}
-              className="bg-card rounded-xl border border-border overflow-hidden hover:border-border/60 transition-all duration-300 group flex flex-col h-full"
+              className="group relative bg-slate-800/50 rounded-xl border border-cyan-500/20 overflow-hidden hover:border-cyan-400 transition-all duration-300 flex flex-col h-full backdrop-blur-sm"
             >
-              {/* Project Image Placeholder */}
-              <div className="h-48 bg-muted flex items-center justify-center overflow-hidden p-4">
+              {/* Tech corner decorations */}
+              <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-cyan-400/50 z-10"></div>
+              <div className="absolute top-2 right-2 w-4 h-4 border-t border-r border-cyan-400/50 z-10"></div>
+              
+              {/* Project Image with overlay */}
+              <div className="relative h-48 bg-slate-900 flex items-center justify-center overflow-hidden">
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={400}
                   height={250}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 rounded-lg"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                {/* Tech overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+                
+                {/* Scanline effect */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
 
-              <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {project.title}
+              <div className="p-6 flex flex-col flex-grow relative">
+                <h3 className="text-xl font-semibold text-slate-200 mb-3 group-hover:text-cyan-400 transition-colors font-mono">
+                  <span className="text-cyan-500/50">{'> '}</span>{project.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                <p className="text-slate-400 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
 
-                {/* Tech Stack */}
+                {/* Tech Stack with tech styling */}
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="bg-gray-100 dark:bg-gray-800 text-foreground px-3 py-1.5 rounded-md text-xs font-medium"
+                      className="bg-slate-900/50 border border-cyan-500/30 text-cyan-400 px-3 py-1.5 rounded-md text-xs font-mono hover:border-cyan-400 hover:shadow-sm hover:shadow-cyan-500/20 transition-all duration-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex gap-4 mt-auto">
+                {/* Links with tech styling */}
+                <div className="flex gap-4 mt-auto pt-4 border-t border-cyan-500/20">
                   <a
                     href={project.github}
-                    className="flex items-center gap-2 text-[#24292e] hover:text-[#0969da] transition-colors"
+                    className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors group/link"
                     aria-label={`View ${project.title} on GitHub`}
                   >
-                    <Github className="w-4 h-4" />
-                    <span className="text-sm">Code</span>
+                    <Github className="w-4 h-4 group-hover/link:animate-pulse" />
+                    <span className="text-sm font-mono">code</span>
                   </a>
                   <a
                     href={project.demo}
-                    className="flex items-center gap-2 text-[#24292e] hover:text-[#0969da] transition-colors"
+                    className="flex items-center gap-2 text-slate-400 hover:text-cyan-400 transition-colors group/link"
                     aria-label={`View ${project.title} demo`}
                   >
-                    <ExternalLink className="w-4 h-4" />
-                    <span className="text-sm">Demo</span>
+                    <ExternalLink className="w-4 h-4 group-hover/link:animate-pulse" />
+                    <span className="text-sm font-mono">demo</span>
                   </a>
                 </div>
               </div>
+              
+              {/* Hover glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-blue-500/0 to-purple-500/0 group-hover:from-cyan-500/5 group-hover:via-blue-500/5 group-hover:to-purple-500/5 transition-all duration-300 pointer-events-none"></div>
             </motion.div>
           ))}
         </motion.div>

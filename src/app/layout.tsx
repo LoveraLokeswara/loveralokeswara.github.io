@@ -6,8 +6,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Lovera Lokeswara - Portfolio",
-  description: "Personal portfolio showcasing my work and experience as a developer",
+  title: "Lovera Lokeswara - Data Science & AI/ML Portfolio",
+  description: "Portfolio showcasing data science, machine learning, and AI engineering projects and experience",
 };
 
 export default function RootLayout({
@@ -27,7 +27,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange={false}
         >
