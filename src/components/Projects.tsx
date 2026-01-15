@@ -20,6 +20,22 @@ const Projects = () => {
       image: "/demo_gromov.png"
     },
     {
+      title: "Volatility Forecasting",
+      description: "A comprehensive study of hybrid models for forecasting financial market volatility. This project evaluates and compares traditional econometric models like ARIMA and GARCH with machine learning techniques such as LSTM and SVM, including hybrid combinations, using historical time series data from assets like S&P 500, Bitcoin, and EUR/USD.",
+      tech: ["Python", "Jupyter Notebook", "ARIMA", "GARCH", "LSTM", "SVM", "scikit-learn", "statsmodels", "arch", "yfinance", "pandas", "numpy", "TensorFlow"],
+      github: "https://github.com/LoveraLokeswara/Volatility-Forecasting",
+      demo: "https://github.com/LoveraLokeswara/Volatility-Forecasting/blob/main/README.md",
+      image: "/The-ARIMA-LSTM-model-Literature-often-uses-several-indicators-to-evaluate-the-performance.png"
+    },
+    {
+      title: "FinBERT Financial Sentiment Analysis",
+      description: "A financial sentiment classification project that implements and compares transformer-based models specifically for financial text. It fine-tunes and evaluates domain-adapted FinBERT and other NLP architectures on labeled datasets, and includes a Gradio-based interactive interface for real-time sentiment analysis of financial text.",
+      tech: ["Python", "PyTorch", "Transformers (Hugging Face)", "FinBERT", "BERT", "RoBERTa", "ULMFiT", "Gradio", "Pandas", "NumPy", "Matplotlib", "Scikit-learn"],
+      github: "https://github.com/LoveraLokeswara/FinBERT-Financial-Sentiment-Analysis",
+      demo: "https://github.com/LoveraLokeswara/FinBERT-Financial-Sentiment-Analysis/blob/main/README.md",
+      image: "/FinBERT.png"
+    },
+    {
       title: "Style Transfer",
       description: "This project implements a style transfer algorithm that allows users to transfer the style of one image onto another. It uses a pre-trained VGG19 model to extract features from the style image and the content image, and then uses these features to generate a new image that has the style of the style image and the content of the content image.",
       tech: ["Python", "PyTorch", "VGG19", "Matplotlib", "Numpy", "TensorFlow", "Keras"],
