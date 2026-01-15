@@ -148,7 +148,7 @@ const About = () => {
             className="text-3xl font-bold mb-4 text-center"
           >
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Skills & Technologies 👩‍💻
+              Skills & Technologies 🖥️
             </span>
           </motion.h3>
           <p className="text-center text-cyan-400 font-mono text-sm mb-12">
