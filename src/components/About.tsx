@@ -110,8 +110,8 @@ const About = () => {
             </div>
 
             <a
-              href="/[Jan 2025] Lovera Lokeswara - CV.pdf"
-              download="[Jan 2025] Lovera Lokeswara - CV.pdf"
+              href="/Lovera Lokeswara - Resume.pdf"
+              download="Lovera Lokeswara - Resume.pdf"
               className="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-6 py-3 rounded-lg hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white dark:hover:bg-gray-600 transition-colors duration-200"
             >
               <Download className="w-4 h-4" />
