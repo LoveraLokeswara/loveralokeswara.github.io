@@ -11,6 +11,16 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: "Machine Learning Engineer Intern",
+      company: "Shopify",
+      duration: "May 2026 - Aug 2026",
+      logo: "/api/placeholder/60/60",
+      contributions: [
+        "Built a deduplication system for Shopify's AI-powered knowledge management pipeline, preventing 50% of duplicate fixes by detecting semantically similar documentation changes using embeddings, document overlap analysis, and LLM-based classification (86.4% accuracy).",
+        "Diagnosed and resolved production issues blocking automated Help Center documentation updates, including corrupted GitHub API operations, reducing failed operation time from 330s to 30s and restoring reliable automated deployments."
+      ]
+    },
+    {
       title: "Software Engineer Intern",
       company: "Bridge AI Knowledge",
       duration: "May 2025 - Aug 2025",
